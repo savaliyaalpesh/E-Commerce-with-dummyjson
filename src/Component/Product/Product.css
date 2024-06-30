@@ -1,0 +1,86 @@
+/* Product.css */
+.product-details-container {
+  padding: 20px;
+}
+
+.thumbnail-col {
+  text-align: center;
+}
+
+.thumbnail-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.main-image-col {
+  text-align: center;
+}
+
+.main-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-details-col {
+  padding: 0 20px;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: bold;
+  color: #B12704; /* Dark Orange color */
+}
+
+.mrp {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.discount {
+  font-size: 18px;
+  color: #D33F49; /* Red color */
+}
+
+.category {
+  font-size: 16px;
+  color: #0066C0; /* Blue color */
+}
+
+.stock {
+  font-size: 16px;
+  color: #28a745; /* Green color */
+}
+
+.description {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.add-to-cart-btn {
+  background-color: #FF9900; /* Amazon Orange color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #FFBF00; /* Lighter Orange on hover */
+}
