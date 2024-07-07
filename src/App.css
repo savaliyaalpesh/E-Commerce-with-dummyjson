@@ -50,3 +50,27 @@ a{
 .menu{
   width: 380px;
 }
+
+@media (max-width: 768px) {
+  .mt {
+    margin-top: 30px; 
+  }
+}
+
+@media (max-width: 425px) {
+  .custom-margin-top {
+    margin-top: 30px; 
+  }
+}
+
+@media (max-width: 375px) {
+  .custom-margin-top {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .custom-margin-top {
+    margin-top: 30px;
+  }
+}

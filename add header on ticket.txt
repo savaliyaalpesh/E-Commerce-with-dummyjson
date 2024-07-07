@@ -1,6 +1,10 @@
+by default select ALL Item when click dropdown then 
+show dropdown menu name and make a perfect responsive using Bootstrap
+in this code
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, ListGroup, Card, Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Card, Button } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -63,7 +67,7 @@ function List({ search }) {
     if (data === null) {
       setListItem(temp);
     } else {
-      axios.get(`https://dummyjson.com/products/category/${data.slug}`)
+      axios.get(`https://dummyjson.com/products/category/${data}`)
         .then(response => {
           setListItem(response.data.products);
         })
@@ -77,24 +81,28 @@ function List({ search }) {
     <Container fluid>
       <Row>
         <Col lg={3} className='position-relative '>
-          <DropdownButton id="dropdown-basic-button" title={selectedCategory ? selectedCategory.name : "All Items"}>
-            <Dropdown.Item
+          <ListGroup>
+            <ListGroup.Item
+              action
+              variant="primary"
               onClick={() => DataFilter(null)}
               active={selectedCategory === null}
             >
               All Items
-            </Dropdown.Item>
+            </ListGroup.Item>
             {list &&
               list.map((item, index) => (
-                <Dropdown.Item
+                <ListGroup.Item
                   key={index}
-                  onClick={() => DataFilter(item)}
-                  active={selectedCategory && selectedCategory.slug === item.slug}
+                  action
+                  variant="primary"
+                  onClick={() => DataFilter(item.slug)}
+                  active={selectedCategory === item.slug}
                 >
-                  {item.name}
-                </Dropdown.Item>
+                  {item.slug}
+                </ListGroup.Item>
               ))}
-          </DropdownButton>
+          </ListGroup>
         </Col>
         <Col lg={9}>
           <Row className='gy-5'>
@@ -108,7 +116,7 @@ function List({ search }) {
                   as={Link}
                   to={`/Product/${item.id}`}
                 >
-                  <Card style={{ width: '18rem' }} className='mt'>
+                  <Card style={{ width: '18rem' }}>
                     <Card.Img variant='top' src={item.thumbnail} style={{ height: '200px' }} className='object-fit-cover' />
                     <Card.Body className='text-decoration-none'>
                       <Card.Text className='fw-bold'>{item.category}</Card.Text>
