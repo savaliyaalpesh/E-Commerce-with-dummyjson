@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
 import './Product.css';
 import { addCart } from '../CartSlice/CartSlice';
 
@@ -17,7 +16,7 @@ function Product() {
   useEffect(() => {
     axios.get(`https://dummyjson.com/products/${id}`)
       .then(function (response) {
-        console.log(response.data); // Debugging line to inspect response structure
+        console.log(response.data);
         setItems(response.data);
         setLoading(false);
       })
